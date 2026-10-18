@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fil">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Password-protected clues for your next scavenger hunt.">
+  <title>Clue Vault · Scavenger Hunt</title>
+  <link rel="stylesheet" href="style.css"><script type="module" src="app.js"></script>
+</head>
+<body>
+  <header><a class="brand" href="./"><span class="brand-icon">✦</span> clue vault<span class="tag">SCAVENGER HUNT</span></a><button id="organizer-toggle" class="quiet">Gumawa ng clue ↗</button></header>
+  <main>
+    <section id="player">
+      <div class="eyebrow">FOLLOW YOUR CURIOSITY</div>
+      <h1>Every secret opens<br>a new <em>adventure.</em></h1>
+      <p class="intro">May clue na naghihintay. Hanapin ang password,<br class="desktop"> buksan ang vault, at sundan ang susunod na hakbang.</p>
+      <div class="vault card">
+        <div class="card-top"><span class="pill" id="vault-state">● LOCKED CLUE</span><span class="small">YOUR NEXT DISCOVERY</span></div>
+        <div id="empty"><div class="lock-icon">✧</div><h2>Ready ka na sa hunt?</h2><p>Buksan ang clue link na ibinigay ng organizer, o subukan muna ang sample.</p><button id="demo" class="primary">Subukan ang sample <span>→</span></button><p class="micro">Sample password: <strong>simula</strong></p></div>
+        <form id="unlock-form" hidden>
+          <div class="lock-icon">⌑</div><h2>Unlock your next clue</h2><p>Ang tamang password ang susi sa susunod na destinasyon.</p>
+          <label for="unlock-password">Clue password</label><div class="password-row"><input id="unlock-password" type="password" maxlength="200" autocomplete="off" required placeholder="Ilagay ang password"><button type="button" id="show-password" class="quiet" aria-label="Ipakita ang password" aria-pressed="false">Show</button></div>
+          <button class="primary" type="submit" id="unlock-button">Buksan ang clue <span>→</span></button>
+        </form>
+        <div id="revealed" hidden><div class="eyebrow">YOU FOUND IT</div><h2 id="clue-title" tabindex="-1"></h2><div id="clue-body"></div><button id="relock" class="secondary">I-lock ulit</button></div>
+        <p id="player-status" class="status" role="status" aria-live="polite"></p>
+      </div>
+      <div class="features"><span>◇ Password protected</span><span>↗ Shareable clue links</span><span>♧ Made for discovery</span></div>
+    </section>
+    <section id="organizer" hidden>
+      <div class="eyebrow">THE ADVENTURE STARTS WITH YOU</div><h1>Plant a clue.<br><em>Spark a discovery.</em></h1><p class="intro">Isulat ang clue, pumili ng password, at ibahagi ang encrypted link.</p>
+      <div class="organizer-grid"><form id="create-form" class="card">
+        <div class="card-top"><span class="pill">✦ CLUE BUILDER</span><span class="small">ORGANIZER</span></div>
+        <label for="title">Clue title</label><input id="title" maxlength="100" required placeholder="Hal. Clue 01 — Ang simula">
+        <label for="content">Secret message <span class="small">MAX 1,200 CHARACTERS</span></label><textarea id="content" maxlength="1200" rows="6" required placeholder="Isulat ang bugtong o direksiyon sa susunod na clue…"></textarea>
+        <label for="create-password">Password <span class="small">AT LEAST 6 CHARACTERS</span></label><input id="create-password" type="password" minlength="6" maxlength="200" required autocomplete="new-password" placeholder="Sagot sa naunang puzzle">
+        <p class="micro">Case-sensitive ang password, kasama ang spaces. Walang password recovery. Mas mahirap hulaan ang mahabang password.</p>
+        <button class="primary" id="create-button" type="submit">Gumawa ng clue link <span>→</span></button><p id="create-status" class="status" role="status"></p>
+      </form><aside class="card instructions"><div class="eyebrow">HOW TO SET THE TRAIL</div><h2>A little mystery.<br>A lot of possibility.</h2><ol><li><strong>Isulat ang sikreto.</strong><p>Ilagay ang clue o lokasyon na makikita kapag na-unlock.</p></li><li><strong>Itago ang susi.</strong><p>Ibigay ang password bilang sagot sa naunang puzzle.</p></li><li><strong>Ibahagi ang link.</strong><p>Ipadala sa players o gawing QR code. Panatilihin ang buong link, kasama ang #.</p></li></ol><p class="micro">Sa browser lang ginagawa ang encryption. Ang clue ay nasa encrypted link; walang shared notes database. Hindi mae-edit o mare-revoke ang naipamahaging link.</p></aside></div>
+      <div id="result" class="card" hidden><span class="pill">✓ YOUR CLUE IS READY</span><h2>One link. A new discovery.</h2><label for="share-link">Player link — ito lang ang ibabahagi</label><textarea id="share-link" rows="3" readonly></textarea><div class="actions"><button id="copy-link" class="primary">Copy link</button><a id="preview-link" class="secondary" target="_blank" rel="noopener noreferrer">Test clue ↗</a><button id="download" class="secondary">Download link backup</button></div><p class="micro">I-download ang backup bago isara ang page. Hindi kasama ang password; itala iyon nang hiwalay.</p></div>
+    </section>
+  </main>
+  <footer><span>clue vault</span><span>Small clues. Big adventures.</span></footer>
+</body></html>
